@@ -1,4 +1,5 @@
-﻿using System.Dynamic;
+﻿using System;
+using System.Dynamic;
 
 namespace FractionsExcercise
 {
@@ -13,6 +14,11 @@ namespace FractionsExcercise
             Numerator = numerator;
             Denominator = denominator;
             AsNumber = (Numerator == 0 && Denominator == 0) ? 0 : (float)Numerator / (float)Denominator;
+        }
+
+        public void Print()
+        {
+            Console.WriteLine($"{Numerator}\n-\n{Denominator}");
         }
     }
 }
