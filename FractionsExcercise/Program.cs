@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            var fraction = new Fraction(3, 4);
+            var fraction = new Fraction(16, 4);
             fraction.Print();
         }
     }
