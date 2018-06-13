@@ -5,6 +5,12 @@
         public Fraction Add(Fraction firstAddend, Fraction secondAddend)
         {
             int newNumerator;
+
+            if (IsFractionZero(firstAddend))
+                return secondAddend;
+
+            if (IsFractionZero(secondAddend))
+                return firstAddend;
             
             if (IsFractionZero(firstAddend) && IsFractionZero(secondAddend))
                 return new Fraction(0, 0);

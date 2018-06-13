@@ -34,5 +34,12 @@ namespace FractionsExercise.Tests
         {
             Assert.That(_fractionCalculator.Add(new Fraction(firstAddendNumerator, firstAddendDenominator), new Fraction(secondAddendNumerator, secondAddendDenominator)).AsNumber, Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator).AsNumber));
         }
+
+        [TestCase(0, 0, 1, 3, 1, 3)]
+        [TestCase(7, 2, 0, 0, 7, 2)]
+        public void Should_add_fractions_when_one_addend_is_zero(int firstAddendNumerator, int firstAddendDenominator, int secondAddendNumerator, int secondAddendDenominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(_fractionCalculator.Add(new Fraction(firstAddendNumerator, firstAddendDenominator), new Fraction(secondAddendNumerator, secondAddendDenominator)).AsNumber, Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator).AsNumber));
+        }
     }
 }

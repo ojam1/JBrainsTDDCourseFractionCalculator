@@ -15,7 +15,7 @@ namespace FractionsExercise
             
             Numerator = numerator == 0 ? 0 : numerator/GreatestCommonFactor(GetFactors(numerator), GetFactors(denominator));
             Denominator = denominator == 0 ? 0 : denominator/ GreatestCommonFactor(GetFactors(numerator), GetFactors(denominator));
-            AsNumber = (float)Numerator / (float)Denominator;
+            AsNumber = numerator == 0 || denominator == 0 ? 0 : (float)Numerator / (float)Denominator;
         }
 
         public void Print()
