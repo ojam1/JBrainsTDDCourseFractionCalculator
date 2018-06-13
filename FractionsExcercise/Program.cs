@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FractionsExcercise
+﻿namespace FractionsExercise
 {
     class Program
     {

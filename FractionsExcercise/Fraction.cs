@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Dynamic;
 
-namespace FractionsExcercise
+namespace FractionsExercise
 {
     public class Fraction
     {

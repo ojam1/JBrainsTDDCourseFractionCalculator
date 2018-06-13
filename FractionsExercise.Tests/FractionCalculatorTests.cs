@@ -1,4 +1,3 @@
-using FractionsExcercise;
 using NUnit.Framework;
 
 namespace FractionsExercise.Tests
