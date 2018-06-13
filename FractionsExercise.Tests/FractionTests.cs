@@ -16,5 +16,11 @@ namespace FractionsExercise.Tests
         {
             Assert.That(_fractionCalculator.Add(new Fraction(0, 0), new Fraction(0, 0)).AsNumber, Is.EqualTo(new Fraction(0, 0).AsNumber));
         }
+
+        [Test]
+        public void Should_add_fractions_with_same_denominator()
+        {
+            Assert.That(_fractionCalculator.Add(new Fraction(1, 4), new Fraction(2, 4)).AsNumber, Is.EqualTo(new Fraction(3, 4).AsNumber));
+        }
     }
 }
