@@ -34,7 +34,7 @@ namespace FractionsExercise
         private static IEnumerable<int> GetFactors(int number)
         {
             var factorList = new List<int>();
-            for (var i = 1; i <= number; i++)
+            for (var i = 1; i <= Math.Abs(number); i++)
             {
                 if (number%i == 0)
                     factorList.Add(i);

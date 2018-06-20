@@ -66,5 +66,15 @@ namespace FractionsExercise.Tests
                 Is.EqualTo(new Fraction(expectedNumerator).AsNumber)
             );
         }
+
+        [TestCase(-1, 2, 1, 3, -1, 6)]
+        [TestCase(2, -3, 2, 6, -1, 3)]
+        [TestCase(1, 4, -2, -8, 1, 2)]
+        public void Should_add_negative_fractions(int firstAddendNumerator, int firstAddendDenominator, int secondAddendNumerator, int secondAddendDenominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator, firstAddendDenominator), new Fraction(secondAddendNumerator, secondAddendDenominator)).AsNumber,
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator).AsNumber)
+            );
+        }
     }
 }
