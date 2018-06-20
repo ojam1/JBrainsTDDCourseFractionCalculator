@@ -32,7 +32,7 @@
 
         private static bool IsFractionZero(Fraction fraction)
         {
-            return fraction.AsNumber.Equals(0);
+            return fraction.Equals(new Fraction(0, 0));
         }
     }
 }
