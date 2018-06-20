@@ -2,32 +2,32 @@
 {
     public class FractionCalculator
     {
-        public static Fraction Add(Fraction firstAddend, Fraction secondAddend)
+        public static Fraction Add(Fraction addend, Fraction augend)
         {
             int newNumerator;
 
-            if (IsFractionZero(firstAddend))
-                return secondAddend;
+            if (IsFractionZero(addend))
+                return augend;
 
-            if (IsFractionZero(secondAddend))
-                return firstAddend;
+            if (IsFractionZero(augend))
+                return addend;
             
-            if (IsFractionZero(firstAddend) && IsFractionZero(secondAddend))
+            if (IsFractionZero(addend) && IsFractionZero(augend))
                 return new Fraction(0, 0);
 
-            if (firstAddend.Denominator != secondAddend.Denominator)
+            if (addend.Denominator != augend.Denominator)
             {
-                var newDenominator = firstAddend.Denominator * secondAddend.Denominator;
+                var newDenominator = addend.Denominator * augend.Denominator;
 
-                newNumerator = (firstAddend.Denominator * secondAddend.Numerator) +
-                               (secondAddend.Denominator * firstAddend.Numerator);
+                newNumerator = (addend.Denominator * augend.Numerator) +
+                               (augend.Denominator * addend.Numerator);
 
                 return new Fraction(newNumerator, newDenominator);
             }
 
-            newNumerator = firstAddend.Numerator + secondAddend.Numerator;
+            newNumerator = addend.Numerator + augend.Numerator;
 
-            return new Fraction(newNumerator, firstAddend.Denominator);
+            return new Fraction(newNumerator, addend.Denominator);
         }
 
         private static bool IsFractionZero(Fraction fraction)
