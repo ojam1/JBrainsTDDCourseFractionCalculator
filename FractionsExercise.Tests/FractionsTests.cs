@@ -11,12 +11,8 @@ namespace FractionsExercise.Tests
         [TestCase(30, 8, 15, 4)]
         public void Should_express_fraction_in_lowest_term(int numerator, int denominator, int expectedNumerator, int expectedDenominator)
         {
-            var fraction = new Fraction(numerator, denominator);
-
-            Assert.True(
-                (fraction.Numerator == expectedNumerator) &&
-                (fraction.Denominator == expectedDenominator)
-                );
+            Assert.That(new Fraction(numerator, denominator),
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
         }
     }
 }
