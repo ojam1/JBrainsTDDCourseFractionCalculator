@@ -57,5 +57,14 @@ namespace FractionsExercise.Tests
                 Is.EqualTo(new Fraction(expectedNumerator).AsNumber)
                 );
         }
+
+        [TestCase(-1, 2, 1)]
+        [TestCase(4, -2, 2)]
+        public void Should_add_negative_whole_numbers(int firstAddendNumerator, int secondAddendNumerator, int expectedNumerator)
+        {
+            Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator), new Fraction(secondAddendNumerator)).AsNumber,
+                Is.EqualTo(new Fraction(expectedNumerator).AsNumber)
+            );
+        }
     }
 }
