@@ -33,14 +33,14 @@ namespace FractionsExercise
 
         private static IEnumerable<int> GetFactors(int number)
         {
-            var list = new List<int>();
+            var factorList = new List<int>();
             for (var i = 1; i <= number; i++)
             {
                 if (number%i == 0)
-                    list.Add(i);
+                    factorList.Add(i);
             }
 
-            return list;
+            return factorList;
         }
 
         private static int GreatestCommonFactor(IEnumerable<int> list1, IEnumerable<int> list2)
