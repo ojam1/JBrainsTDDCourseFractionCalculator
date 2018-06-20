@@ -2,7 +2,7 @@
 {
     public class FractionCalculator
     {
-        public Fraction Add(Fraction firstAddend, Fraction secondAddend)
+        public static Fraction Add(Fraction firstAddend, Fraction secondAddend)
         {
             int newNumerator;
 
