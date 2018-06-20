@@ -24,9 +24,10 @@ namespace FractionsExercise
             }
             else if (denominator < 0)
             {
-                denominator = Math.Abs(denominator);
                 numerator = -Math.Abs(numerator);
+                denominator = Math.Abs(denominator);
             }
+
             Numerator = numerator == 0 ? 0 : numerator / GreatestCommonFactor(GetFactors(numerator), GetFactors(denominator));
             Denominator = denominator == 0 ? 0 : denominator / GreatestCommonFactor(GetFactors(numerator), GetFactors(denominator));
         }
