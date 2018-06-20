@@ -32,18 +32,18 @@ namespace FractionsExercise.Tests
 
         [TestCase(3, 2, 5, 2, 8, 2)]
         [TestCase(3, 2, 5, 3, 19, 6)]
-        public void Should_add_improper_fractions(int firstAddendNumerator, int firstAddendDenominator, int secondAddendNumerator, int secondAddendDenominator, int expectedNumerator, int expectedDenominator)
+        public void Should_add_improper_fractions(int addendNumerator, int addendDenominator, int augendNumerator, int augendDenominator, int expectedNumerator, int expectedDenominator)
         {
-            Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator, firstAddendDenominator), new Fraction(secondAddendNumerator, secondAddendDenominator)).AsNumber,
+            Assert.That(FractionCalculator.Add(new Fraction(addendNumerator, addendDenominator), new Fraction(augendNumerator, augendDenominator)).AsNumber,
                 Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator).AsNumber)
                 );
         }
 
         [TestCase(0, 0, 1, 3, 1, 3)]
         [TestCase(7, 2, 0, 0, 7, 2)]
-        public void Should_add_fractions_when_one_addend_is_zero(int firstAddendNumerator, int firstAddendDenominator, int secondAddendNumerator, int secondAddendDenominator, int expectedNumerator, int expectedDenominator)
+        public void Should_add_fractions_when_one_addend_is_zero(int addendNumerator, int addendDenominator, int augendNumerator, int augendDenominator, int expectedNumerator, int expectedDenominator)
         {
-            Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator, firstAddendDenominator), new Fraction(secondAddendNumerator, secondAddendDenominator)).AsNumber,
+            Assert.That(FractionCalculator.Add(new Fraction(addendNumerator, addendDenominator), new Fraction(augendNumerator, augendDenominator)).AsNumber,
                 Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator).AsNumber)
                 );
         }
@@ -51,18 +51,18 @@ namespace FractionsExercise.Tests
         [TestCase(0, 3, 3)]
         [TestCase(5, 0, 5)]
         [TestCase(1, 2, 3)]
-        public void Should_add_whole_numbers(int firstAddendNumerator, int secondAddendNumerator, int expectedNumerator)
+        public void Should_add_whole_numbers(int addendNumerator, int augendNumerator, int expectedNumerator)
         {
-            Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator), new Fraction(secondAddendNumerator)).AsNumber,
+            Assert.That(FractionCalculator.Add(new Fraction(addendNumerator), new Fraction(augendNumerator)).AsNumber,
                 Is.EqualTo(new Fraction(expectedNumerator).AsNumber)
                 );
         }
 
         [TestCase(-1, 2, 1)]
-        [TestCase(4, -2, 2)]
-        public void Should_add_negative_whole_numbers(int firstAddendNumerator, int secondAddendNumerator, int expectedNumerator)
+        [TestCase(4, -6, -2)]
+        public void Should_add_negative_whole_numbers(int addendNumerator, int augendNumerator, int expectedNumerator)
         {
-            Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator), new Fraction(secondAddendNumerator)).AsNumber,
+            Assert.That(FractionCalculator.Add(new Fraction(addendNumerator), new Fraction(augendNumerator)).AsNumber,
                 Is.EqualTo(new Fraction(expectedNumerator).AsNumber)
             );
         }
@@ -70,9 +70,9 @@ namespace FractionsExercise.Tests
         [TestCase(-1, 2, 1, 3, -1, 6)]
         [TestCase(2, -3, 2, 6, -1, 3)]
         [TestCase(1, 4, -2, -8, 1, 2)]
-        public void Should_add_negative_fractions(int firstAddendNumerator, int firstAddendDenominator, int secondAddendNumerator, int secondAddendDenominator, int expectedNumerator, int expectedDenominator)
+        public void Should_add_negative_fractions(int addendNumerator, int addendDenominator, int augendNumerator, int augendDenominator, int expectedNumerator, int expectedDenominator)
         {
-            Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator, firstAddendDenominator), new Fraction(secondAddendNumerator, secondAddendDenominator)).AsNumber,
+            Assert.That(FractionCalculator.Add(new Fraction(addendNumerator, addendDenominator), new Fraction(augendNumerator, augendDenominator)).AsNumber,
                 Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator).AsNumber)
             );
         }
