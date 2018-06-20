@@ -10,20 +10,19 @@ namespace FractionsExercise
         public readonly int Denominator;
         public float AsNumber;
 
+        public Fraction(int numerator)
+        {
+            Numerator = numerator;
+            Denominator = 1;
+            AsNumber = numerator == 0 ? 0 : (float)Numerator;
+        }
+
         public Fraction(int numerator, int denominator )
         {
             
             Numerator = numerator == 0 ? 0 : numerator/GreatestCommonFactor(GetFactors(numerator), GetFactors(denominator));
             Denominator = denominator == 0 ? 0 : denominator/ GreatestCommonFactor(GetFactors(numerator), GetFactors(denominator));
             AsNumber = numerator == 0 || denominator == 0 ? 0 : (float)Numerator / (float)Denominator;
-        }
-
-        public Fraction(int numerator)
-        {
-
-            Numerator = numerator;
-            Denominator = 1;
-            AsNumber = numerator == 0 ? 0 : (float)Numerator;
         }
 
         public void Print()
