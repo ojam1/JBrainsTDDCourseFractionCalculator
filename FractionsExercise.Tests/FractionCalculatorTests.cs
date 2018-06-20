@@ -36,5 +36,13 @@ namespace FractionsExercise.Tests
         {
             Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator, firstAddendDenominator), new Fraction(secondAddendNumerator, secondAddendDenominator)).AsNumber, Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator).AsNumber));
         }
+
+        [TestCase(0, 3, 3)]
+        [TestCase(5, 0, 5)]
+        [TestCase(1, 2, 3)]
+        public void Should_add_whole_numbers(int firstAddendNumerator, int secondAddendNumerator, int expectedNumerator)
+        {
+            Assert.That(FractionCalculator.Add(new Fraction(firstAddendNumerator), new Fraction(secondAddendNumerator)).AsNumber, Is.EqualTo(new Fraction(expectedNumerator).AsNumber));
+        }
     }
 }

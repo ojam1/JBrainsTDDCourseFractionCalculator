@@ -18,6 +18,14 @@ namespace FractionsExercise
             AsNumber = numerator == 0 || denominator == 0 ? 0 : (float)Numerator / (float)Denominator;
         }
 
+        public Fraction(int numerator)
+        {
+
+            Numerator = numerator;
+            Denominator = 1;
+            AsNumber = numerator == 0 ? 0 : (float)Numerator;
+        }
+
         public void Print()
         {
             Console.WriteLine($"{Numerator}\n-\n{Denominator}");
