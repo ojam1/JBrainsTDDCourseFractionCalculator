@@ -8,7 +8,6 @@ namespace FractionsExercise
     {
         public readonly int Numerator;
         public readonly int Denominator;
-        public float AsNumber;
 
         public Fraction(int numerator)
         {
