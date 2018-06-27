@@ -34,7 +34,7 @@ namespace FractionsExercise
 
         public void Print()
         {
-            Console.WriteLine($"{Numerator}\n-\n{Denominator}");
+            Console.WriteLine(ToString());
         }
 
         private static IEnumerable<int> GetFactors(int number)
@@ -54,6 +54,8 @@ namespace FractionsExercise
             return list1.Where(list2.Contains).Max();
         }
 
+        #region Equality
+
         protected bool Equals(Fraction other)
         {
             return Numerator == other.Numerator && Denominator == other.Denominator;
@@ -64,7 +66,7 @@ namespace FractionsExercise
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Fraction) obj);
+            return Equals((Fraction)obj);
         }
 
         public override int GetHashCode()
@@ -73,6 +75,13 @@ namespace FractionsExercise
             {
                 return (Numerator * 397) ^ Denominator;
             }
+        }
+
+        #endregion
+
+        public override string ToString()
+        {
+            return $"{Numerator}/{Denominator}";
         }
     }
 }
