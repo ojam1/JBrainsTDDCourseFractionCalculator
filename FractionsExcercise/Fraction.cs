@@ -28,8 +28,8 @@ namespace FractionsExercise
                 denominator = Math.Abs(denominator);
             }
 
-            Numerator = numerator == 0 ? 0 : numerator / GreatestCommonFactor(GetFactors(numerator), GetFactors(denominator));
-            Denominator = denominator == 0 ? 0 : denominator / GreatestCommonFactor(GetFactors(numerator), GetFactors(denominator));
+            Numerator = numerator == 0 ? 0 : numerator / GreatestCommonDivisor(numerator, denominator);
+            Denominator = denominator == 0 ? 0 : denominator / GreatestCommonDivisor(numerator, denominator);
         }
 
         public void Print()
@@ -37,21 +37,16 @@ namespace FractionsExercise
             Console.WriteLine(ToString());
         }
 
-        private static IEnumerable<int> GetFactors(int number)
+        private static int GreatestCommonDivisor(int a, int b)
         {
-            var factorList = new List<int>();
-            for (var i = 1; i <= Math.Abs(number); i++)
+            while (b != 0)
             {
-                if (number%i == 0)
-                    factorList.Add(i);
+                var temporary = b;
+                b = a % temporary;
+                a = temporary;
             }
 
-            return factorList;
-        }
-
-        private static int GreatestCommonFactor(IEnumerable<int> list1, IEnumerable<int> list2)
-        {
-            return list1.Where(list2.Contains).Max();
+            return Math.Abs(a);
         }
 
         #region Equality
@@ -81,7 +76,7 @@ namespace FractionsExercise
 
         public override string ToString()
         {
-            return $"{Numerator}/{Denominator}";
+            return Denominator == 1 ? $"{Numerator}" : $"{Numerator}/{Denominator}";
         }
     }
 }

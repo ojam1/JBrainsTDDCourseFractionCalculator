@@ -9,6 +9,7 @@ namespace FractionsExercise.Tests
         [TestCase(5, 10, 1, 2)]
         [TestCase(16, 4, 4, 1)]
         [TestCase(30, 8, 15, 4)]
+        [TestCase(0, 0, 0, 0)]
         public void Should_express_fraction_in_lowest_term(int numerator, int denominator, int expectedNumerator, int expectedDenominator)
         {
             Assert.That(new Fraction(numerator, denominator),
