@@ -58,5 +58,14 @@ namespace FractionsExercise.Tests
             Assert.That(FractionCalculator.Multiply(new Fraction(multiplicandNumerator, multiplicandDenominator), new Fraction(multiplierNumerator, multiplierDenominator)),
                 Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
         }
+
+        [TestCase(-1, 2, 1, 3, -1, 6)]
+        [TestCase(2, -3, 2, 6, -2, 9)]
+        [TestCase(1, 4, -2, -8, 1, 16)]
+        public void Should_multiply_negative_fractions(int multiplicandNumerator, int multiplicandDenominator, int multiplierNumerator, int multiplierDenominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(FractionCalculator.Multiply(new Fraction(multiplicandNumerator, multiplicandDenominator), new Fraction(multiplierNumerator, multiplierDenominator)),
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
+        }
     }
 }
