@@ -6,14 +6,8 @@
         {
             int newNumerator;
 
-            if (IsFractionZero(addend))
-                return augend;
-
-            if (IsFractionZero(augend))
-                return addend;
-            
-            if (IsFractionZero(addend) && IsFractionZero(augend))
-                return new Fraction(0, 0);
+            if (AdditionFromAnyZeroFractionInCalcualtion(addend, augend) != null)
+                return AdditionFromAnyZeroFractionInCalcualtion(addend, augend);
 
             if (addend.Denominator != augend.Denominator)
             {
@@ -28,6 +22,20 @@
             newNumerator = addend.Numerator + augend.Numerator;
 
             return new Fraction(newNumerator, addend.Denominator);
+        }
+
+        private static Fraction AdditionFromAnyZeroFractionInCalcualtion(Fraction addend, Fraction augend)
+        {
+            if (IsFractionZero(addend))
+                return augend;
+
+            if (IsFractionZero(augend))
+                return addend;
+
+            if (IsFractionZero(addend) && IsFractionZero(augend))
+                return new Fraction(0, 0);
+
+            return null;
         }
 
         private static bool IsFractionZero(Fraction fraction)
