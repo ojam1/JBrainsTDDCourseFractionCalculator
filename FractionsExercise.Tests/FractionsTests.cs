@@ -15,5 +15,14 @@ namespace FractionsExercise.Tests
             Assert.That(new Fraction(numerator, denominator),
                 Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
         }
+
+        [TestCase(0, 0, 0, 0)]
+        [TestCase(1, 0, 0, 0)]
+        [TestCase(0, 1, 0, 0)]
+        public void Should_handle_zero_in_fraction(int numerator, int denominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(new Fraction(numerator, denominator),
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
+        }
     }
 }

@@ -17,19 +17,27 @@ namespace FractionsExercise
 
         public Fraction(int numerator, int denominator )
         {
+            if (numerator == 0 || denominator == 0)
+            {
+                Numerator = 0;
+                Denominator = 0;
+                return;
+            }
+
             if (numerator < 0 && denominator < 0)
             {
                 numerator = Math.Abs(numerator);
                 denominator = Math.Abs(denominator);
             }
+
             else if (denominator < 0)
             {
                 numerator = -Math.Abs(numerator);
                 denominator = Math.Abs(denominator);
             }
 
-            Numerator = numerator == 0 ? 0 : numerator / GreatestCommonDivisor(numerator, denominator);
-            Denominator = denominator == 0 ? 0 : denominator / GreatestCommonDivisor(numerator, denominator);
+            Numerator = numerator / GreatestCommonDivisor(numerator, denominator);
+            Denominator = denominator / GreatestCommonDivisor(numerator, denominator);
         }
 
         public void Print()
