@@ -20,5 +20,13 @@ namespace FractionsExercise.Tests
             Assert.That(FractionCalculator.Multiply(new Fraction(multiplicandNumerator), new Fraction(multiplierNumerator)),
                 Is.EqualTo(new Fraction(expectedNumerator)));
         }
+
+        [TestCase(-1, 2, -2)]
+        [TestCase(3, -2, -6)]
+        public void Should_multiply_negative_whole_numbers(int multiplicandNumerator, int multiplierNumerator, int expectedNumerator)
+        {
+            Assert.That(FractionCalculator.Multiply(new Fraction(multiplicandNumerator), new Fraction(multiplierNumerator)),
+                Is.EqualTo(new Fraction(expectedNumerator)));
+        }
     }
 }
