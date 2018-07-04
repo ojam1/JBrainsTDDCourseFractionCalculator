@@ -35,5 +35,12 @@ namespace FractionsExercise.Tests
             Assert.That(FractionCalculator.Multiply(new Fraction(1, 4), new Fraction(2, 4)),
                 Is.EqualTo(new Fraction(1, 8)));
         }
+
+        [Test]
+        public void Should_multiply_fractions_with_different_denominator()
+        {
+            Assert.That(FractionCalculator.Multiply(new Fraction(1, 4), new Fraction(2, 5)),
+                Is.EqualTo(new Fraction(1, 10)));
+        }
     }
 }
