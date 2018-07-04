@@ -3,7 +3,7 @@ using NUnit.Framework;
 namespace FractionsExercise.Tests
 {
     [TestFixture]
-    public class FractionCalculatorTests
+    public class FractionAdditionTests
     {
         [Test]
         public void Should_add_zero_fractions()
