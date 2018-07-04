@@ -42,5 +42,12 @@
         {
             return fraction.Equals(new Fraction(0, 0));
         }
+        public static Fraction Multiply(Fraction multiplicand, Fraction multiplier)
+        {
+            if (IsFractionZero(multiplicand) || IsFractionZero(multiplier))
+                return new Fraction(0, 0);
+
+            return new Fraction(1);
+        }
     }
 }
