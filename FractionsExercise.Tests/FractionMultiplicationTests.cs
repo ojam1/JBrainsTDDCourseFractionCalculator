@@ -42,5 +42,13 @@ namespace FractionsExercise.Tests
             Assert.That(FractionCalculator.Multiply(new Fraction(1, 4), new Fraction(2, 5)),
                 Is.EqualTo(new Fraction(1, 10)));
         }
+
+        [TestCase(3, 2, 5, 2, 15, 4)]
+        [TestCase(3, 2, 5, 3, 15, 6)]
+        public void Should_multiply_improper_fractions(int multiplicandNumerator, int multiplicandDenominator, int multiplierNumerator, int multiplierDenominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(FractionCalculator.Multiply(new Fraction(multiplicandNumerator, multiplicandDenominator), new Fraction(multiplierNumerator, multiplierDenominator)),
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
+        }
     }
 }
