@@ -24,6 +24,16 @@
             return new Fraction(newNumerator, addend.Denominator);
         }
 
+        public static Fraction Multiply(Fraction multiplicand, Fraction multiplier)
+        {
+            if (IsFractionZero(multiplicand) || IsFractionZero(multiplier))
+                return new Fraction(0, 0);
+
+            var newNumerator = multiplicand.Numerator * multiplier.Numerator;
+
+            return new Fraction(newNumerator);
+        }
+
         private static Fraction AdditionFromAnyZeroFractionInCalcualtion(Fraction addend, Fraction augend)
         {
             if (IsFractionZero(addend))
@@ -41,16 +51,6 @@
         private static bool IsFractionZero(Fraction fraction)
         {
             return fraction.Equals(new Fraction(0, 0));
-        }
-
-        public static Fraction Multiply(Fraction multiplicand, Fraction multiplier)
-        {
-            if (IsFractionZero(multiplicand) || IsFractionZero(multiplier))
-                return new Fraction(0, 0);
-
-            var newNumerator = multiplicand.Numerator * multiplier.Numerator;
-
-            return new Fraction(newNumerator);
         }
     }
 }

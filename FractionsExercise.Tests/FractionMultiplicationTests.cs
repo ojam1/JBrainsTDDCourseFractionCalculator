@@ -15,9 +15,9 @@ namespace FractionsExercise.Tests
         [TestCase(0, 3, 0)]
         [TestCase(5, 0, 0)]
         [TestCase(1, 2, 2)]
-        public void Should_multiply_whole_numbers(int addendNumerator, int augendNumerator, int expectedNumerator)
+        public void Should_multiply_whole_numbers(int multiplicandNumerator, int multiplierNumerator, int expectedNumerator)
         {
-            Assert.That(FractionCalculator.Multiply(new Fraction(addendNumerator), new Fraction(augendNumerator)),
+            Assert.That(FractionCalculator.Multiply(new Fraction(multiplicandNumerator), new Fraction(multiplierNumerator)),
                 Is.EqualTo(new Fraction(expectedNumerator)));
         }
     }
