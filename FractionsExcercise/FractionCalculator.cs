@@ -31,7 +31,9 @@
 
             var newNumerator = multiplicand.Numerator * multiplier.Numerator;
 
-            return new Fraction(newNumerator);
+            var newDenominator = multiplicand.Denominator * multiplier.Denominator;
+
+            return new Fraction(newNumerator, newDenominator);
         }
 
         private static Fraction AdditionFromAnyZeroFractionInCalcualtion(Fraction addend, Fraction augend)
