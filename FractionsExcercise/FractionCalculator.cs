@@ -36,15 +36,39 @@
             return new Fraction(newNumerator, newDenominator);
         }
 
-        private static Fraction AdditionFromAnyZeroFractionInCalcualtion(Fraction addend, Fraction augend)
+        public static Fraction Subtract(Fraction minuend, Fraction subtrahend)
         {
-            if (IsFractionZero(addend))
-                return augend;
+            if (SubtractionFromAnyZeroFractionInCalcualtion(minuend, subtrahend) != null)
+                return SubtractionFromAnyZeroFractionInCalcualtion(minuend, subtrahend);
 
-            if (IsFractionZero(augend))
-                return addend;
+            var newNumerator = minuend.Numerator - subtrahend.Numerator;
 
-            if (IsFractionZero(addend) && IsFractionZero(augend))
+            return new Fraction(newNumerator);
+        }
+
+        private static Fraction AdditionFromAnyZeroFractionInCalcualtion(Fraction firstFractionInCalculation, Fraction secondFractionInCalculation)
+        {
+            if (IsFractionZero(firstFractionInCalculation))
+                return secondFractionInCalculation;
+
+            if (IsFractionZero(secondFractionInCalculation))
+                return firstFractionInCalculation;
+
+            if (IsFractionZero(firstFractionInCalculation) && IsFractionZero(secondFractionInCalculation))
+                return new Fraction(0, 0);
+
+            return null;
+        }
+
+        private static Fraction SubtractionFromAnyZeroFractionInCalcualtion(Fraction firstFractionInCalculation, Fraction secondFractionInCalculation)
+        {
+            if (IsFractionZero(firstFractionInCalculation))
+                return new Fraction(-secondFractionInCalculation.Numerator, secondFractionInCalculation.Denominator);
+
+            if (IsFractionZero(secondFractionInCalculation))
+                return firstFractionInCalculation;
+
+            if (IsFractionZero(firstFractionInCalculation) && IsFractionZero(secondFractionInCalculation))
                 return new Fraction(0, 0);
 
             return null;
