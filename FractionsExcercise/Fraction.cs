@@ -9,11 +9,7 @@ namespace FractionsExercise
         public readonly int Numerator;
         public readonly int Denominator;
 
-        public Fraction(int numerator)
-        {
-            Numerator = numerator;
-            Denominator = 1;
-        }
+        public Fraction(int numerator) : this(numerator, 1) { }
 
         public Fraction(int numerator, int denominator )
         {
