@@ -50,5 +50,13 @@ namespace FractionsExercise.Tests
             Assert.That(FractionCalculator.Multiply(new Fraction(multiplicandNumerator, multiplicandDenominator), new Fraction(multiplierNumerator, multiplierDenominator)),
                 Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
         }
+
+        [TestCase(0, 0, 1, 3, 0, 0)]
+        [TestCase(7, 2, 0, 0, 0, 0)]
+        public void Should_return_a_zero_fraction_when_one_factor_is_zero(int multiplicandNumerator, int multiplicandDenominator, int multiplierNumerator, int multiplierDenominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(FractionCalculator.Multiply(new Fraction(multiplicandNumerator, multiplicandDenominator), new Fraction(multiplierNumerator, multiplierDenominator)),
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
+        }
     }
 }
