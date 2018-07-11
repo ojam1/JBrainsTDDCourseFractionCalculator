@@ -58,6 +58,14 @@
             return new Fraction(newNumerator, newDenominator);
         }
 
+        public static Fraction Divide(Fraction dividend, Fraction divisor)
+        {
+            if (IsFractionZero(dividend) || IsFractionZero(divisor))
+                return new Fraction(0, 0);
+
+            return new Fraction(0, 0);
+        }
+
         private static bool DenominatorsDifferent(Fraction firstFraction, Fraction secondFraction)
         {
             return firstFraction.Denominator != secondFraction.Denominator;
