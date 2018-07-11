@@ -60,10 +60,7 @@
 
         public static Fraction Divide(Fraction dividend, Fraction divisor)
         {
-            if (IsFractionZero(dividend) || IsFractionZero(divisor))
-                return new Fraction(0, 0);
-
-            return new Fraction(0, 0);
+            return Multiply(dividend, new Fraction(divisor.Denominator, divisor.Numerator));
         }
 
         private static bool DenominatorsDifferent(Fraction firstFraction, Fraction secondFraction)
