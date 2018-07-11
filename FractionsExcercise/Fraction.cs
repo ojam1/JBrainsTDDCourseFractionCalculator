@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FractionsExercise
 {
@@ -41,16 +39,16 @@ namespace FractionsExercise
             Console.WriteLine(ToString());
         }
 
-        private static int GreatestCommonDivisor(int a, int b)
+        private static int GreatestCommonDivisor(int firstNumber, int secondNumber)
         {
-            while (b != 0)
+            while (secondNumber != 0)
             {
-                var temporary = b;
-                b = a % temporary;
-                a = temporary;
+                var temporary = secondNumber;
+                secondNumber = firstNumber % temporary;
+                firstNumber = temporary;
             }
 
-            return Math.Abs(a);
+            return Math.Abs(firstNumber);
         }
 
         #region Equality
