@@ -9,12 +9,12 @@
             if (AdditionFromAnyZeroFractionInCalcualtion(addend, augend) != null)
                 return AdditionFromAnyZeroFractionInCalcualtion(addend, augend);
 
-            if (addend.Denominator != augend.Denominator)
+            if (DenominatorsDifferent(addend, augend))
             {
                 var newDenominator = addend.Denominator * augend.Denominator;
 
-                newNumerator = (addend.Denominator * augend.Numerator) +
-                               (augend.Denominator * addend.Numerator);
+                newNumerator = addend.Numerator * augend.Denominator +
+                               augend.Numerator * addend.Denominator;
 
                 return new Fraction(newNumerator, newDenominator);
             }
@@ -43,12 +43,12 @@
             if (SubtractionFromAnyZeroFractionInCalcualtion(minuend, subtrahend) != null)
                 return SubtractionFromAnyZeroFractionInCalcualtion(minuend, subtrahend);
 
-            if (minuend.Denominator != subtrahend.Denominator)
+            if (DenominatorsDifferent(minuend, subtrahend))
             {
                 var newDenominator = minuend.Denominator * subtrahend.Denominator;
 
-                newNumerator = (minuend.Numerator * subtrahend.Denominator) -
-                               (subtrahend.Numerator * minuend.Denominator);
+                newNumerator = minuend.Numerator * subtrahend.Denominator -
+                               subtrahend.Numerator * minuend.Denominator;
 
                 return new Fraction(newNumerator, newDenominator);
             }
@@ -56,6 +56,11 @@
             newNumerator = minuend.Numerator - subtrahend.Numerator;
 
             return new Fraction(newNumerator, minuend.Denominator);
+        }
+
+        private static bool DenominatorsDifferent(Fraction firstFraction, Fraction secondFraction)
+        {
+            return firstFraction.Denominator != secondFraction.Denominator;
         }
 
         private static Fraction AdditionFromAnyZeroFractionInCalcualtion(Fraction firstFractionInCalculation, Fraction secondFractionInCalculation)
