@@ -24,18 +24,6 @@
             return new Fraction(newNumerator, addend.Denominator);
         }
 
-        public static Fraction Multiply(Fraction multiplicand, Fraction multiplier)
-        {
-            if (IsFractionZero(multiplicand) || IsFractionZero(multiplier))
-                return new Fraction(0, 0);
-
-            var newNumerator = multiplicand.Numerator * multiplier.Numerator;
-
-            var newDenominator = multiplicand.Denominator * multiplier.Denominator;
-
-            return new Fraction(newNumerator, newDenominator);
-        }
-
         public static Fraction Subtract(Fraction minuend, Fraction subtrahend)
         {
             int newNumerator;
@@ -58,9 +46,26 @@
             return new Fraction(newNumerator, minuend.Denominator);
         }
 
+        public static Fraction Multiply(Fraction multiplicand, Fraction multiplier)
+        {
+            if (IsFractionZero(multiplicand) || IsFractionZero(multiplier))
+                return new Fraction(0, 0);
+
+            var newNumerator = multiplicand.Numerator * multiplier.Numerator;
+
+            var newDenominator = multiplicand.Denominator * multiplier.Denominator;
+
+            return new Fraction(newNumerator, newDenominator);
+        }
+
         private static bool DenominatorsDifferent(Fraction firstFraction, Fraction secondFraction)
         {
             return firstFraction.Denominator != secondFraction.Denominator;
+        }
+
+        private static bool IsFractionZero(Fraction fraction)
+        {
+            return fraction.Equals(new Fraction(0, 0));
         }
 
         private static Fraction AdditionFromAnyZeroFractionInCalcualtion(Fraction firstFractionInCalculation, Fraction secondFractionInCalculation)
@@ -89,11 +94,6 @@
                 return new Fraction(0, 0);
 
             return null;
-        }
-
-        private static bool IsFractionZero(Fraction fraction)
-        {
-            return fraction.Equals(new Fraction(0, 0));
         }
     }
 }
