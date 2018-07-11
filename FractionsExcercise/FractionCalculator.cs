@@ -38,10 +38,22 @@
 
         public static Fraction Subtract(Fraction minuend, Fraction subtrahend)
         {
+            int newNumerator;
+
             if (SubtractionFromAnyZeroFractionInCalcualtion(minuend, subtrahend) != null)
                 return SubtractionFromAnyZeroFractionInCalcualtion(minuend, subtrahend);
 
-            var newNumerator = minuend.Numerator - subtrahend.Numerator;
+            if (minuend.Denominator != subtrahend.Denominator)
+            {
+                var newDenominator = minuend.Denominator * subtrahend.Denominator;
+
+                newNumerator = (minuend.Numerator * subtrahend.Denominator) -
+                               (subtrahend.Numerator * minuend.Denominator);
+
+                return new Fraction(newNumerator, newDenominator);
+            }
+
+            newNumerator = minuend.Numerator - subtrahend.Numerator;
 
             return new Fraction(newNumerator, minuend.Denominator);
         }

@@ -36,6 +36,13 @@ namespace FractionsExercise.Tests
             Assert.That(FractionCalculator.Subtract(new Fraction(4, 5), new Fraction(1, 5)),
                 Is.EqualTo(new Fraction(3, 5)));
         }
+
+        [Test]
+        public void Should_subtract_fractions_with_different_denominator()
+        {
+            Assert.That(FractionCalculator.Subtract(new Fraction(3, 4), new Fraction(2, 5)),
+                Is.EqualTo(new Fraction(7, 20)));
+        }
     }
 }
     
