@@ -7,7 +7,7 @@ namespace FractionsExercise.Tests
     public class FractionSubtractionTests
     {
         [Test]
-        public void Should_substract_zero_fractions()
+        public void Should_subtract_zero_fractions()
         {
             Assert.That(FractionCalculator.Subtract(new Fraction(0, 0), new Fraction(0, 0)),
                 Is.EqualTo(new Fraction(0, 0)));
