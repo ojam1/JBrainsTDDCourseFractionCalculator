@@ -43,7 +43,7 @@
 
             var newNumerator = minuend.Numerator - subtrahend.Numerator;
 
-            return new Fraction(newNumerator);
+            return new Fraction(newNumerator, minuend.Denominator);
         }
 
         private static Fraction AdditionFromAnyZeroFractionInCalcualtion(Fraction firstFractionInCalculation, Fraction secondFractionInCalculation)
