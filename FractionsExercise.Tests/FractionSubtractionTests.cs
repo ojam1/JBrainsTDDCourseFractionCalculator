@@ -24,9 +24,9 @@ namespace FractionsExercise.Tests
 
         [TestCase(-1, 2, -3)]
         [TestCase(4, -6, 10)]
-        public void Should_subtract_negative_whole_numbers(int subtractendNumerator, int augendNumerator, int expectedNumerator)
+        public void Should_subtract_negative_whole_numbers(int minuendNumerator, int subtrahendNumerator, int expectedNumerator)
         {
-            Assert.That(FractionCalculator.Subtract(new Fraction(subtractendNumerator), new Fraction(augendNumerator)),
+            Assert.That(FractionCalculator.Subtract(new Fraction(minuendNumerator), new Fraction(subtrahendNumerator)),
                 Is.EqualTo(new Fraction(expectedNumerator)));
         }
 
@@ -42,6 +42,31 @@ namespace FractionsExercise.Tests
         {
             Assert.That(FractionCalculator.Subtract(new Fraction(3, 4), new Fraction(2, 5)),
                 Is.EqualTo(new Fraction(7, 20)));
+        }
+
+        [TestCase(3, 2, 6, 2, -3, 2)]
+        [TestCase(3, 2, 5, 3, -1, 6)]
+        public void Should_subtract_improper_fractions(int minuendNumerator, int minuendDenominator, int subtrahendNumerator, int subtrahendDenominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(FractionCalculator.Subtract(new Fraction(minuendNumerator, minuendDenominator), new Fraction(subtrahendNumerator, subtrahendDenominator)),
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
+        }
+
+        [TestCase(0, 0, 1, 3, -1, 3)]
+        [TestCase(7, 2, 0, 0, 7, 2)]
+        public void Should_subtract_fractions_when_one_subtractend_is_zero(int minuendNumerator, int minuendDenominator, int subtrahendNumerator, int subtrahendDenominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(FractionCalculator.Subtract(new Fraction(minuendNumerator, minuendDenominator), new Fraction(subtrahendNumerator, subtrahendDenominator)),
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
+        }
+
+        [TestCase(-1, 2, 1, 3, -5, 6)]
+        [TestCase(2, -3, 2, 6, -1, 1)]
+        [TestCase(1, 4, -3, -8, -1, 8)]
+        public void Should_subtract_negative_fractions(int minuendNumerator, int minuendDenominator, int subtrahendNumerator, int subtrahendDenominator, int expectedNumerator, int expectedDenominator)
+        {
+            Assert.That(FractionCalculator.Subtract(new Fraction(minuendNumerator, minuendDenominator), new Fraction(subtrahendNumerator, subtrahendDenominator)),
+                Is.EqualTo(new Fraction(expectedNumerator, expectedDenominator)));
         }
     }
 }
