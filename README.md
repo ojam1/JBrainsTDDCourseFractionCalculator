@@ -1,0 +1,1 @@
+# A .NetCore Solution for [The World's Best Intro to TDD, Level 1: TDD Done Right - Series 1 Fraction Calculator](https://online-training.jbrains.ca/courses/wbitdd-01/lectures/133485)
